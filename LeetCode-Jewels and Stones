@@ -1,0 +1,7 @@
+class Solution:
+    def numJewelsInStones(self, J: str, S: str) -> int:
+        answer = 0
+        for x in S:
+            if x in J:
+                answer=answer+1
+        return answer
