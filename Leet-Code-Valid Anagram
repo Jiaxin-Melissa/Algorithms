@@ -1,0 +1,15 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        A=dict()
+        for letter in s:
+            if letter not in A:
+                A[letter]=0
+            A[letter]=A[letter]+1
+        B=dict()
+        for letter in t:
+            if letter not in B:
+                B[letter]=0
+            B[letter]=B[letter]+1
+        if A==B:
+            return True
+        return False

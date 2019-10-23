@@ -1,0 +1,12 @@
+class Solution:
+    def uncommonFromSentences(self, A: str, B: str) -> List[str]:
+        D=dict()
+        A=A.split(' ')
+        B=B.split(' ')
+        C=A+B
+        for i in range(0,len(C)):
+            if C[i] not in D:
+                D[C[i]]=0
+            D[C[i]]=D[C[i]]+1
+        List=[word for word in D if D[word]==1]
+        return List   

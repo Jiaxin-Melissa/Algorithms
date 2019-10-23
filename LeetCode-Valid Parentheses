@@ -1,0 +1,15 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        left='([{'
+        right=')]}'
+        ans=[]
+        for c in s:
+            if c in left:
+                ans.append(c)
+            elif c in right:
+                if not ans:
+                    return False
+                else:
+                    if right.index(c)!=left.index(ans.pop()):
+                        return False
+        return ans==[]

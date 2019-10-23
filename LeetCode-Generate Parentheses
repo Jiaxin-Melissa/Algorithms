@@ -1,0 +1,13 @@
+class Solution:
+    def generateParenthesis(self, n: int) -> List[str]:
+        ans=[]   
+        self.DFS('',n,n,ans)
+        return ans
+    def DFS(self,S,left,right,ans):
+            if left==0 and right==0:
+                ans.append(S)
+            else:
+                if left>0:
+                    self.DFS(S+'(',left-1, right,ans)
+                if right>left:
+                    self.DFS(S+')',left,right-1,ans)

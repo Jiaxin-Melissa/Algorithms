@@ -1,0 +1,11 @@
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        D=dict()
+        for i in range(0,len(nums)):
+            if nums[i] not in D:
+                D[nums[i]] =1
+            else:
+                D[nums[i]]=D[nums[i]]+1
+        for i in range(len(nums)):
+            if D[nums[i]]==1:
+                 return nums[i]

@@ -1,0 +1,24 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def isleaf(self,Node:TreeNode):
+        if Node==None:
+            return False
+        if Node.left==None and Node.right==None:
+            return True
+        return False
+    def sumOfLeftLeaves(self, root: TreeNode) -> int:
+        sum=0
+        if root==None:
+            return 0
+        if self.isleaf(root.left):
+            sum=sum+root.left.val
+        else:
+            sum=sum+self.sumOfLeftLeaves(root.left)
+        sum=sum+self.sumOfLeftLeaves(root.right)
+        return sum

@@ -1,0 +1,7 @@
+class Solution:
+    def hammingDistance(self, x: int, y: int) -> int:
+        answer=0
+        for n in range(0,32):
+            if int(x/2**n)%2!=int(y/2**n)%2:
+                answer=answer+1
+        return answer

@@ -1,0 +1,21 @@
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        if len(strs)==1:
+            return strs[0]
+        if not strs and len(strs)==0:
+            return ""
+        if strs and len(strs)>0:
+            left=strs[:int(len(strs)/2)]
+            right=strs[int(len(strs)/2):]
+            left_longest=self.longestCommonPrefix(left)
+            right_longest=self.longestCommonPrefix(right)
+            
+        ans=''
+        first,last=left_longest,right_longest
+        min_compare=min(len(first),len(last))
+        for i in range (min_compare):
+            if last[i]==first[i]:
+                ans+=last[i]
+            else:
+                break
+        return ans

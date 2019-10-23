@@ -1,0 +1,6 @@
+class Solution:
+    def getRow(self, rowIndex: int) -> List[int]:
+        L=[1]
+        for i in range(rowIndex):
+            L=[sum(i) for i in zip([0]+L,L+[0])]
+        return L

@@ -1,0 +1,23 @@
+class Solution:
+    def pathInZigZagTree(self, label: int) -> List[int]:
+        result = [label]
+        from math import log
+        while label > 1:
+            label_row=int(log(label)/log(2))
+            if label_row%2==0:
+                left_row=2**label_row
+            else:
+                left_row=2**(label_row+1)-1
+            distance_label=abs(left_row-label)
+            positionOfParentInPreviousRow=distance_label//2
+            father_row=label_row-1
+            if father_row%2==0:
+                left_father_row=2**father_row
+                father=left_father_row+positionOfParentInPreviousRow
+            else:
+                left_father_row=2**(father_row+1)-1
+                father=left_father_row-positionOfParentInPreviousRow
+            result.insert(0,int(father))
+            label=father
+        
+        return result

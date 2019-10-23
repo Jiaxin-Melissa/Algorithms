@@ -1,0 +1,12 @@
+class Solution:
+    def isMonotonic(self, A: List[int]) -> bool:
+        couldItStillBeIncreasing = True
+        couldItStillBeDecreasing = True
+        for i in range(0,len(A)-1):
+            j=i+1
+            if i<=j:
+                if (A[i]>A[j]):
+                    couldItStillBeIncreasing = False
+                if (A[i]<A[j]):
+                    couldItStillBeDecreasing=False
+        return couldItStillBeIncreasing or couldItStillBeDecreasing
