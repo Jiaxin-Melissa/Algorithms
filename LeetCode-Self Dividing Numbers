@@ -1,0 +1,12 @@
+class Solution:
+    def selfDividingNumbers(self, left: int, right: int) -> List[int]:
+        def isself_dividing(n):
+            for d in str(n):
+                if d=='0' or n%int(d)!=0:
+                    return False
+            return True
+        ans=[]
+        for x in range(left, right+1):
+            if isself_dividing(x)==True:
+                ans.append(x)
+        return ans
