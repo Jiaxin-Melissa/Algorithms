@@ -1,0 +1,11 @@
+class Solution:
+    def checkPossibility(self, nums: List[int]) -> bool:
+        Modified =None
+        for i in range(len(nums)-1):
+            if nums[i]>nums[i+1]:
+                if Modified is not None:
+                    return False
+                Modified=i
+                
+                    
+        return (Modified is None or Modified==0 or Modified==len(nums)-2 or                 Modified==len(nums)-1 or nums[Modified-1]<=nums[Modified+1] or                              nums[Modified]<=nums[Modified+2] )
